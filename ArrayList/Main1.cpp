@@ -10,7 +10,7 @@ using namespace std;
 
 struct Student {
     string name;
-    vector<int> marks;   // marks in 5 subjects
+    vector<int> marks;   
     int total;
     int rank;
 };

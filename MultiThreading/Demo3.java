@@ -94,26 +94,63 @@ public class Demo3 {
 }*/
 
 
+// class Demo3 {
+//     public static void main(String[] args) {
+//           Thread t1 = new Thread(() -> {
+
+//             try {
+//                 System.out.println("Sleeping...");
+//                 Thread.sleep(10000);
+//                 System.out.println("Completed");
+//             } catch (InterruptedException e) {
+//                 System.out.println("Thread Interrupted!");
+//             }
+//         });
+
+//         t1.start();
+
+//         try {
+//             Thread.sleep(2000);
+//         } catch (Exception e) {
+//         }
+
+//         t1.interrupt(); // t1 is interrunpted by main thread
+//     }
+// }
+
+
+
+// important interrupt method
+
+
 class Demo3 {
     public static void main(String[] args) {
-          Thread t1 = new Thread(() -> {
+        // Thread t1 = new Thread(() -> {
 
-            try {
-                System.out.println("Sleeping...");
-                Thread.sleep(10000);
-                System.out.println("Completed");
-            } catch (InterruptedException e) {
-                System.out.println("Thread Interrupted!");
+        //     while(true){
+        //         System.out.println("Running...");
+        //     }
+        // });
+
+
+        Thread t2 = new Thread(() -> {
+
+            while(!Thread.currentThread().isInterrupted()){
+                System.out.println("Running...");
             }
+
         });
 
-        t1.start();
+
+        // t1.start();
+        t2.start();
 
         try {
             Thread.sleep(2000);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
         }
 
-        t1.interrupt(); // t1 is interrunpted by main thread
+        t2.interrupt(); // t1 is interrunpted by main thread
     }
 }
